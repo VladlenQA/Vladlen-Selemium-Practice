@@ -1,37 +1,18 @@
 package org.brit.tests;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.*;
+import org.brit.Selenium.utils.PropertiesReader;
 
-public class LoginTests {
-    private static final String USER_NAME = "standard_user";
-    private static final String USER_PASS = "secret_sauce";
-    WebDriver driver;
+public class LoginTests extends BaseTestClass {
+    private static final String USER_NAME = PropertiesReader.getInstance().getProperty("swag.lab.username");
+    private static final String USER_PASS = PropertiesReader.getInstance().getProperty("swag.lab.userpass");
 
-    @BeforeClass
-    public void beforeClass() {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--remote-allow-origins=*");
-        driver = new ChromeDriver(chromeOptions);
-        driver.manage().window().maximize();
-    }
-
-    @AfterClass
-    public void afterClass() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
 
     @BeforeMethod
     public void beforeMethod() {
-        driver.navigate().to("https://www.saucedemo.com/");
+        goToUrl(PropertiesReader.getInstance().getProperty("swag.lab.url"));
     }
 
     @AfterMethod

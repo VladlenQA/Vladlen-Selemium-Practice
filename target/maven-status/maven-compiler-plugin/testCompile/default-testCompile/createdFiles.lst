@@ -1,0 +1,16 @@
+org/brit/tests/FrameTests.class
+org/brit/tests/WaitersTests$1.class
+org/brit/tests/WaitersTests.class
+org/brit/tests/LoginTests.class
+org/brit/tests/BasicAuthTests.class
+org/brit/tests/SelectTests.class
+HomeWorkFrames/HomeWorkFramesTests.class
+org/brit/tests/BaseTestClass.class
+org/brit/tests/CookiesTests.class
+HomeWorkFrames/HomeWorkBaseTestClass.class
+org/brit/tests/AlertsTests.class
+org/brit/tests/Windows.class
+HomeworkAlerts/AlertsHomeWorkTests$Buttons.class
+org/brit/tests/AlertsTests$Buttons.class
+org/brit/tests/WaitersTests$2.class
+HomeworkAlerts/AlertsHomeWorkTests.class

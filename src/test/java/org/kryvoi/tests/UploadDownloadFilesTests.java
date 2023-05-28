@@ -1,4 +1,4 @@
-package org.brit.tests;
+package org.kryvoi.tests;
 
 import lombok.SneakyThrows;
 import org.apache.commons.io.FileUtils;

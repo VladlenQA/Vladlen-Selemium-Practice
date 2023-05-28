@@ -1,4 +1,4 @@
-package org.brit.tests;
+package org.kryvoi.tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;

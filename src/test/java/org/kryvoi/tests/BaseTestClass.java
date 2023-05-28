@@ -1,4 +1,4 @@
-package org.brit.tests;
+package org.kryvoi.tests;
 
 import org.brit.Selenium.driver.WebDriverHolder;
 import org.openqa.selenium.WebDriver;

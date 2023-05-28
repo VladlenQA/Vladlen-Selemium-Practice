@@ -1,27 +1,39 @@
-package org.brit.tests;
+package org.kryvoi.tests;
 
-import org.brit.Selenium.driver.WebDriverHolder;
-import org.brit.Selenium.pages.login.LoginPage;
-import org.brit.Selenium.pages.main.MainPage;
-import org.brit.Selenium.pages.main.Product;
-import org.brit.Selenium.pages.main.SortDirection;
-import org.brit.Selenium.utils.PropertiesReader;
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.FileDownloadMode;
+import com.codeborne.selenide.Selenide;
+import org.brit.Selenide.driver.WebDriverHolder;
+import org.brit.Selenide.pages.login.LoginPage;
+import org.brit.Selenide.pages.main.MainPage;
+import org.brit.Selenide.pages.main.Product;
+import org.brit.Selenide.pages.main.SortDirection;
+import org.brit.Selenide.utils.PropertiesReader;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
 
-public class LoginTestPO extends BaseTestClass{
+import static com.codeborne.selenide.Selenide.open;
 
+public class LoginTestPOSelenide {
     String userName = PropertiesReader.getInstance().getProperty("swag.lab.username");
     String userPass = PropertiesReader.getInstance().getProperty("swag.lab.userpass");
 
+    @BeforeClass
+    public void beforeClass() {
+        Configuration.timeout = 10000;
+        Configuration.browser = "firefox";
+        Configuration.fileDownload = FileDownloadMode.FOLDER;
+    }
 
     @BeforeMethod
     public void beforeMethod() {
-        WebDriverHolder.getInstance().getDriver().manage().deleteAllCookies();
-        goToUrl(PropertiesReader.getInstance().getProperty("swag.lab.url"));
+        open(PropertiesReader.getInstance().getProperty("swag.lab.url"));
+        Selenide.clearBrowserCookies();
     }
 
     @Test
@@ -54,8 +66,8 @@ public class LoginTestPO extends BaseTestClass{
 
     @Test
     public void getAllProductsTest() {
-       List<Product> products = new LoginPage().login(userName, userPass).getProducts();
-       Assert.assertEquals(products.size(), 6);
+        List<Product> products = new LoginPage().login(userName, userPass).getProducts();
+        Assert.assertEquals(products.size(), 6);
     }
 
     @Test

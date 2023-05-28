@@ -75,8 +75,7 @@ public class MainPage extends BasePage {
     }
 
     public MainPage sortBy(SortDirection sortDirection) {
-        Select select = new Select(sortByElement);
-        select.selectByValue(sortDirection.getValue());
+        sortByElement.selectOptionByValue(sortDirection.getValue());
         sleep(1500);
         return new MainPage();
     }
